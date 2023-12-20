@@ -16,7 +16,7 @@ def create_pulumi_program(keydata: str, instance_type=str):
     # TODO: Make this something the user can choose.
     ami = aws.ec2.get_ami(most_recent=True,
                           owners=["amazon"],
-                          filters=[aws.GetAmiFilterArgs(name="name", values=["*amzn2-ami-minimal-hvm*"])])
+                          filters=[aws.ec2.GetAmiFilterArgs(name="name", values=["*amzn2-ami-minimal-hvm*"])])
 
     group = aws.ec2.SecurityGroup('web-secgrp',
                                   description='Enable SSH access',
